@@ -6,6 +6,6 @@ next-env.d.ts
 .env*.local
 .DS_Store
 # Original photos stay local; the optimized copies live in public/gallery.
-art/
+/art/
 # Reference screenshot; the details live in lib/site.ts.
 contact info.png
