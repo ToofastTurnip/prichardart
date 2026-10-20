@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-linen: #f4f1ea;
+  --color-paper: #ffffff;
+  --color-mist: #eae8e3;
+  --color-sand: #e2dfd7;
+  --color-ink: #1e242b;
+  --color-ink-soft: #4f5660;
+  --color-ink-faint: #656b73; /* placeholders: 4.5:1 on paper and linen */
+  --color-field: #80858c; /* form field borders: 3:1 on paper and linen */
+  --color-bay: #2b547e;
+  --color-bay-deep: #1f3f61;
+  --color-rust: #b85b35;
+  --color-rust-text: #96441f;
+  --color-sage: #7a8b7b;
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-source-sans), "Source Sans 3", system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-in: fade-in 400ms var(--ease-out-soft);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-linen);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-bay) 22%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-bay);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button,
+a,
+summary,
+label[for],
+select {
+  touch-action: manipulation;
+}
+
+/* Text inputs, selects and textareas share one accessible style. */
+@utility field {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid var(--color-field);
+  border-radius: 0;
+  background: var(--color-paper);
+  padding: 0.625rem 0.875rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  transition:
+    border-color 150ms,
+    box-shadow 150ms;
+
+  &::placeholder {
+    color: var(--color-ink-faint);
+    opacity: 1;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border-color: var(--color-bay);
+    box-shadow: 0 0 0 2px var(--color-bay);
+  }
+  &[aria-invalid="true"] {
+    border-color: var(--color-rust-text);
+  }
+  @media (forced-colors: active) {
+    &:focus {
+      outline: 2px solid CanvasText;
+    }
+  }
+}
+
+/* Keep the page behind an open lightbox from scrolling (notably on iOS). */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+dialog::backdrop {
+  background: rgb(18 22 27 / 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
