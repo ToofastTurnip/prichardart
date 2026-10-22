@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!a) return {};
   const url = absolute(artworkPath(a.slug));
   return {
-    title: `${a.title} by Prichard | Prichard Art`,
+    title: `${a.title} by Ralph Prichard | Prichard Art`,
     description: describe(a),
     alternates: { canonical: url },
     openGraph: {
