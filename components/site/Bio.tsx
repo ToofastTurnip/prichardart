@@ -35,20 +35,18 @@ export function Bio() {
 
       <div className="mt-14 lg:col-span-7 lg:mt-4">
         <h2 id="about-title" className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">
-          About the artist
+          Ralph Prichard
         </h2>
         <div className="mt-8 max-w-[62ch] space-y-5 text-lg leading-relaxed text-ink">
           <p>
-            Prichard paints from a home studio in Middle River, a few minutes from the water on
-            Maryland&rsquo;s side of the Chesapeake Bay. Most subjects come from close by: great blue
-            herons working the shallows, workboats tied up at the pilings, blue crabs by the
-            bushel, and the stone farmhouses and rusted trucks that still turn up on the back roads
-            of Baltimore County.
+            I am a Maryland artist living on the Chesapeake Bay. I graduated as my high school
+            class artist in 1971. My high school art teacher was David Turnbaugh, the renowned
+            Maryland artist. Mr. Turnbaugh is the main reason I am still creating art today.
           </p>
           <p>
-            The work is slow on purpose. Feathers go down one stroke at a time, and rust is built
-            up in layers the way it forms on real steel. A painting usually starts from a
-            photograph clipped to the easel and gets worked until it can stand without it.
+            I took a few night classes at Towson University and a local community college, but I
+            am mostly self-taught. My career was demanding and I put my art supplies on the side
+            for about 40 years. I retired in 2019 and started painting again.
           </p>
           <p className="text-ink-soft">
             Commissions are open for boats, houses, pets and portraits painted from your own

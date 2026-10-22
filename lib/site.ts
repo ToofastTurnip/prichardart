@@ -8,7 +8,7 @@ export const site = {
   messengerName: "Prichard ART",
   tagline: "Original pastels and paintings of the Chesapeake Bay and Maryland's back roads",
   description:
-    "Prichard is a Middle River, Maryland artist painting great blue herons, ospreys, blue crabs, Chesapeake workboats, lighthouses, stone farmhouses and rusted trucks in pastel, watercolor and acrylic. Originals, prints and commissions of boats, homes, pets and portraits.",
+    "Ralph Prichard is a Middle River, Maryland artist painting great blue herons, ospreys, blue crabs, Chesapeake workboats, lighthouses, stone farmhouses and rusted trucks in pastel, watercolor and acrylic. Originals, prints and commissions of boats, homes, pets and portraits.",
 };
 
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";

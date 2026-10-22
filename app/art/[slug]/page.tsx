@@ -15,7 +15,7 @@ export const dynamicParams = false;
 function describe(a: ReturnType<typeof getArtworks>[number]) {
   const status =
     a.status === "Sold" ? "This original has sold." : a.status === "NFS" ? "This piece is not for sale." : a.status === "Prints Available" ? "Prints are available." : "The original is available.";
-  return `${a.title}, ${a.medium.toLowerCase()} by Prichard, a Middle River, Maryland artist. ${status} Commissions welcome.`;
+  return `${a.title}, ${a.medium.toLowerCase()} by Ralph Prichard, a Middle River, Maryland artist. ${status} Commissions welcome.`;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "article",
       url,
-      title: `${a.title} by Prichard`,
+      title: `${a.title} by Ralph Prichard`,
       description: describe(a),
       images: [{ url: absolute(a.imageUrl), width: a.width, height: a.height, alt: a.title }],
     },

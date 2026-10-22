@@ -4,8 +4,10 @@ import type { Artwork } from "./types";
 export const artistLd = {
   "@type": "Person",
   "@id": absolute("#artist"),
-  name: "Prichard",
+  name: "Ralph Prichard",
   jobTitle: "Artist",
+  description:
+    "Maryland artist living on the Chesapeake Bay. Class artist of 1971, taught by Maryland painter David Turnbaugh, mostly self-taught, and painting again since retiring in 2019.",
   url: absolute(),
   email: `mailto:${site.email}`,
   address: {

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: "Prichard Art | Chesapeake paintings from Middle River, Maryland",
   description:
-    "Original pastels and paintings of herons, workboats, lighthouses and old farmhouses by Prichard, a Middle River, Maryland artist. Commissions welcome.",
+    "Original pastels and paintings of herons, workboats, lighthouses and old farmhouses by Ralph Prichard, a Middle River, Maryland artist. Commissions welcome.",
   alternates: { canonical: absolute() },
   openGraph: {
     type: "website",

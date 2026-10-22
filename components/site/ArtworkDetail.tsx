@@ -46,7 +46,7 @@ export function ArtworkDetail({ artwork: a, newer, older }: { artwork: Artwork; 
           <div className="lg:col-span-4 lg:pt-4">
             <p className="text-ink-soft">{a.category}</p>
             <h1 className="mt-2 font-serif text-5xl leading-[1.02] font-semibold tracking-tight">{a.title}</h1>
-            <p className="mt-4 text-lg text-ink-soft">By Prichard, Middle River, Maryland</p>
+            <p className="mt-4 text-lg text-ink-soft">By Ralph Prichard, Middle River, Maryland</p>
 
             <dl className="mt-8 divide-y divide-sand border-y border-sand">
               <Row label="Medium">{a.medium}</Row>
