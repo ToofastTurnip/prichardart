@@ -52,6 +52,7 @@ const pieces = [
   ["638778052_122237472650265686_2153022813174069097_n.jpg", "Portrait of Carroll", "Portraits & Commissions", PASTEL, { status: "NFS" }],
   ["653710114_122240609168265686_8248325340482265273_n.jpg", "Steamed Stacked Crabs", "Wildlife & Nature", PASTEL],
   ["719636130_122251059938265686_8116500671935050706_n.jpg", "Pooles Island Beach", "Maritime & Watercraft", OIL, { featured: true }],
+  ["country-mailboxes.jpg", "Country Mailboxes", "Historic & Rustic", OIL],
 ];
 
 // In-progress easel shots used in the bio section rather than the gallery.
