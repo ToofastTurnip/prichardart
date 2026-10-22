@@ -18,7 +18,7 @@ export const artistLd = {
     postalCode: "21220",
     addressCountry: "US",
   },
-  knowsAbout: ["Pastel painting", "Watercolor", "Acrylic painting", "Chesapeake Bay wildlife", "Maritime art", "Commissioned portraits"],
+  knowsAbout: ["Pastel painting", "Oil painting", "Chesapeake Bay wildlife", "Maritime art", "Commissioned portraits"],
 };
 
 export function artworkLd(a: Artwork) {

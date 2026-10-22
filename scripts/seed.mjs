@@ -13,46 +13,45 @@ const uploadDir = path.join(root, "public", "gallery");
 const dataFile = path.join(root, "content", "artworks.json");
 const studioDir = path.join(root, "public", "studio");
 
-const PASTEL = "Pastel on toned paper";
-const PAPER = "Pastel on paper";
-const WATER = "Watercolor on paper";
-const ACRYLIC = "Acrylic on canvas";
+const PASTEL = "Soft pastel";
+const OIL = "Oil";
 
 // Listed oldest to newest (matches the order the photos were posted).
-// Titles, mediums and statuses are first-pass guesses for the artist to correct in /admin.
+// Titles and mediums come from the artist's Facebook posts. Prices and availability live in
+// content/artworks.json and are managed in /admin.
 const pieces = [
-  ["469003683_122165602694265686_7722942121839368140_n.jpg", "Great Blue Heron", "Wildlife & Nature", PASTEL],
-  ["469003691_122165603474265686_2721880104931812380_n.jpg", "Heron in Flight", "Wildlife & Nature", PASTEL],
+  ["469003683_122165602694265686_7722942121839368140_n.jpg", "Blue Heron on Log", "Wildlife & Nature", PASTEL],
+  ["469003691_122165603474265686_2721880104931812380_n.jpg", "Blue Heron in Flight", "Wildlife & Nature", PASTEL],
   ["469051138_122165602712265686_5766051456408466405_n.jpg", "Rainbow Lorikeet", "Wildlife & Nature", PASTEL],
-  ["469073490_122165603222265686_1003610439476251944_n.jpg", "Red Brick Mill", "Historic & Rustic", WATER],
-  ["469073780_122165602682265686_6680616216116597985_n.jpg", "Village by the Sea", "Historic & Rustic", WATER],
-  ["469073798_122165603258265686_7056659283362580351_n.jpg", "Heron on the Bow", "Maritime & Watercraft", WATER, { featured: true }],
-  ["469092483_122165602784265686_2952022503768706785_n.jpg", "Old Truck in the Field", "Historic & Rustic", PAPER],
-  ["469092703_122165603264265686_3653786580780085407_n.jpg", "Osprey with Catch", "Wildlife & Nature", PASTEL],
-  ["469103522_122165603444265686_4420161928286217931_n.jpg", "Rust in the Tall Grass", "Historic & Rustic", PAPER],
-  ["469116983_122165602664265686_2266051272629519418_n.jpg", "Work Boots", "Historic & Rustic", PAPER],
-  ["469118484_122165602544265686_5363544567025551628_n.jpg", "Birches by the Water", "Wildlife & Nature", ACRYLIC],
-  ["469155610_122165603414265686_7338733393837275813_n.jpg", "Wood Duck in Flight", "Wildlife & Nature", PASTEL],
-  ["469190376_122165602754265686_4502690953326936089_n.jpg", "The Old Truss Bridge", "Historic & Rustic", ACRYLIC, { featured: true }],
-  ["469242516_122165602808265686_588442272861901017_n.jpg", "Lighthouse at Sundown", "Maritime & Watercraft", PAPER],
-  ["469254782_122165602688265686_5612369235059686890_n.jpg", "Esso Coupe", "Historic & Rustic", PAPER],
-  ["469260467_122165603378265686_5612742431468875876_n.jpg", "Workboat at the Pilings", "Maritime & Watercraft", PASTEL],
-  ["469303830_122165603420265686_933412720999554766_n.jpg", "Iron Lighthouse", "Maritime & Watercraft", PAPER],
-  ["469308918_122165603432265686_2372201937082032997_n.jpg", "Maryland Blue Crab", "Wildlife & Nature", PASTEL, { featured: true }],
+  ["469073490_122165603222265686_1003610439476251944_n.jpg", "Red Nobles Mill", "Historic & Rustic", OIL],
+  ["469073780_122165602682265686_6680616216116597985_n.jpg", "Pittenweem, Scotland", "Historic & Rustic", OIL],
+  ["469073798_122165603258265686_7056659283362580351_n.jpg", "Blue Heron on Boat", "Maritime & Watercraft", OIL, { featured: true }],
+  ["469092483_122165602784265686_2952022503768706785_n.jpg", "Old Farm Truck", "Historic & Rustic", PASTEL],
+  ["469092703_122165603264265686_3653786580780085407_n.jpg", "Osprey Lunch", "Wildlife & Nature", PASTEL],
+  ["469103522_122165603444265686_4420161928286217931_n.jpg", "1940 Chevy", "Historic & Rustic", PASTEL],
+  ["469116983_122165602664265686_2266051272629519418_n.jpg", "Work Boots", "Historic & Rustic", PASTEL],
+  ["469118484_122165602544265686_5363544567025551628_n.jpg", "Paper Birch Trees in Fall", "Wildlife & Nature", OIL],
+  ["469155610_122165603414265686_7338733393837275813_n.jpg", "Wood Duck Flight", "Wildlife & Nature", PASTEL],
+  ["469190376_122165602754265686_4502690953326936089_n.jpg", "Old Bridge in Fall", "Historic & Rustic", OIL, { featured: true }],
+  ["469242516_122165602808265686_588442272861901017_n.jpg", "Pooles Island Lighthouse at Dawn", "Maritime & Watercraft", PASTEL],
+  ["469254782_122165602688265686_5612369235059686890_n.jpg", "1939 Nash", "Historic & Rustic", PASTEL],
+  ["469260467_122165603378265686_5612742431468875876_n.jpg", "Work Boat", "Maritime & Watercraft", PASTEL],
+  ["469303830_122165603420265686_933412720999554766_n.jpg", "Miller Island Lighthouse", "Maritime & Watercraft", PASTEL],
+  ["469308918_122165603432265686_2372201937082032997_n.jpg", "Blue Crab", "Wildlife & Nature", PASTEL, { featured: true }],
   ["469310022_122165603462265686_7959245307534571359_n.jpg", "Mandarin Duck", "Wildlife & Nature", PASTEL],
-  ["469316022_122165602598265686_2190704510999329372_n.jpg", "Charter Boat at the Dock", "Maritime & Watercraft", PAPER],
-  ["469346769_122165603294265686_7794698819901583318_n.jpg", "Bald Eagle", "Wildlife & Nature", PASTEL, { featured: true }],
-  ["469361776_122165603348265686_7373928637646874359_n.jpg", "Dune Fence", "Wildlife & Nature", PAPER],
-  ["469361793_122165603228265686_4728133186652641380_n.jpg", "Farmhouse in Snow", "Historic & Rustic", WATER],
-  ["469387163_122165603528265686_6714589868894656444_n.jpg", "Mallard Drake in Flight", "Wildlife & Nature", PASTEL],
-  ["472390146_122170310024265686_7264240745962215892_n.jpg", "Stone House", "Historic & Rustic", ACRYLIC],
-  ["481947906_122180867726265686_2793352142252226576_n.jpg", "House on the Pilings", "Historic & Rustic", ACRYLIC],
-  ["489960007_122190242834265686_2568891107933188487_n.jpg", "Oyster Boat at Daybreak", "Maritime & Watercraft", ACRYLIC],
-  ["490584013_2795922343904469_6969183252228948512_n.jpg", "Bay Workboat", "Maritime & Watercraft", PAPER],
-  ["604647841_122229705800265686_1266030749128409811_n.jpg", "Skiff in the Marsh", "Maritime & Watercraft", ACRYLIC, { featured: true }],
-  ["638778052_122237472650265686_2153022813174069097_n.jpg", "Portrait in a Green Cap", "Portraits & Commissions", PASTEL, { status: "NFS" }],
-  ["653710114_122240609168265686_8248325340482265273_n.jpg", "A Stack of Steamed Crabs", "Wildlife & Nature", PASTEL],
-  ["719636130_122251059938265686_8116500671935050706_n.jpg", "White Tower Light", "Maritime & Watercraft", ACRYLIC, { featured: true }],
+  ["469316022_122165602598265686_2190704510999329372_n.jpg", "Galloway Girl", "Maritime & Watercraft", PASTEL],
+  ["469346769_122165603294265686_7794698819901583318_n.jpg", "Eagle in Flight", "Wildlife & Nature", PASTEL, { featured: true }],
+  ["469361776_122165603348265686_7373928637646874359_n.jpg", "Rehoboth Beach", "Wildlife & Nature", OIL],
+  ["469361793_122165603228265686_4728133186652641380_n.jpg", "Yellow Farm", "Historic & Rustic", OIL],
+  ["469387163_122165603528265686_6714589868894656444_n.jpg", "Mallard Duck Flight", "Wildlife & Nature", PASTEL],
+  ["472390146_122170310024265686_7264240745962215892_n.jpg", "Old Stone Farmhouse", "Historic & Rustic", OIL],
+  ["481947906_122180867726265686_2793352142252226576_n.jpg", "Brigadoon Marina", "Historic & Rustic", OIL],
+  ["489960007_122190242834265686_2568891107933188487_n.jpg", "Crab Boat at Dawn", "Maritime & Watercraft", OIL],
+  ["490584013_2795922343904469_6969183252228948512_n.jpg", "Bay Workboat", "Maritime & Watercraft", PASTEL],
+  ["604647841_122229705800265686_1266030749128409811_n.jpg", "Row Boat at Old Pier", "Maritime & Watercraft", OIL, { featured: true }],
+  ["638778052_122237472650265686_2153022813174069097_n.jpg", "Portrait of Carroll", "Portraits & Commissions", PASTEL, { status: "NFS" }],
+  ["653710114_122240609168265686_8248325340482265273_n.jpg", "Steamed Stacked Crabs", "Wildlife & Nature", PASTEL],
+  ["719636130_122251059938265686_8116500671935050706_n.jpg", "Pooles Island Beach", "Maritime & Watercraft", OIL, { featured: true }],
 ];
 
 // In-progress easel shots used in the bio section rather than the gallery.

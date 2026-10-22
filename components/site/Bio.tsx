@@ -3,15 +3,11 @@ import { asset } from "@/lib/site";
 const mediums = [
   {
     name: "Pastel",
-    note: "Soft pastel on gray, tan and blue paper, where the tone of the sheet does part of the work. Used for birds, crabs, trucks and portraits.",
+    note: "Soft pastel on gray, tan and blue paper, where the tone of the sheet does part of the work. Used for birds, crabs, lighthouses, old cars and portraits, and often framed under glass.",
   },
   {
-    name: "Watercolor",
-    note: "Looser washes for old mills, farmhouses and seaside towns, often left with a ragged edge.",
-  },
-  {
-    name: "Acrylic",
-    note: "Canvas work for landscapes, boats and lighthouses, usually finished in a reclaimed barnwood frame.",
+    name: "Oil",
+    note: "Landscapes, farms, mills, boats and beaches, many finished in a reclaimed barnwood frame.",
   },
 ];
 
@@ -24,11 +20,11 @@ export function Bio() {
           width={1200}
           height={1600}
           loading="lazy"
-          alt="An unfinished painting of a stone house on a wooden easel, with the reference photograph clipped above it"
+          alt="An unfinished oil painting of a stone farmhouse on a wooden easel, with the reference photograph clipped above it"
           className="h-auto w-full border border-sand bg-paper object-cover shadow-sm"
         />
         <figcaption className="mt-3 text-sm text-ink-soft">
-          <span className="font-serif text-base italic text-ink">Stone House</span>, in progress on
+          <span className="font-serif text-base italic text-ink">Old Stone Farmhouse</span>, in progress on
           the studio easel with its reference photo clipped above.
         </figcaption>
       </figure>

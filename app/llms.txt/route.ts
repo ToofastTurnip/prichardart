@@ -43,7 +43,7 @@ Ralph Prichard is a Maryland artist with a home studio at ${site.address.street}
 ## Pages
 
 - [Home and gallery](${absolute()}): every painting, filterable by subject
-- [About the artist](${absolute("#about")}): his story and the mediums used (pastel, watercolor, acrylic)
+- [About the artist](${absolute("#about")}): his story and the mediums used (soft pastel and oil)
 - [Contact](${absolute("#contact")}): inquiry form and contact details
 
 ## Artwork
